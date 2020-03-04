@@ -60,7 +60,7 @@ export const Signup = props => {
                     <input name='email' type='text' placeholder='Email' value={userSignUp.email} onChange={handleChange} />
                     <button>Sign Up</button>
                     <label>Already have an account?</label>
-                    <button><NavLink to='/login'>Log in</NavLink></button>
+                    <button><NavLink to="/login">Log in</NavLink></button>
                 </form>
                 </FormBack>
         </div>
