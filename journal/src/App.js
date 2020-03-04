@@ -4,7 +4,8 @@ import PrivateRoute from './components/PrivateRoute';
 import { Signup } from './components/Signup';
 import { Login } from './components/Login';
 import { Dashboard } from './components/Dashboard';
-import ProfilePage from './components/ProfilePage';
+import { ProfilePage } from './components/ProfilePage';
+import { ProfilePostsForm } from './components/ProfilePostsForm';
 import ProfileSetting from './components/ProfileSetting';
 import { ProfileSettingCardForm } from './components/ProfileSettingCardForm';
 
@@ -30,6 +31,7 @@ function App() {
           <Route exact path='/profile' component={ProfilePage} />
           <Route exact path='/setting' component={ProfileSetting}/>
           <Route exact path='/update-setting' component={ProfileSettingCardForm} />
+          <Route exact path='/update-post/:id' component={ProfilePostsForm} />
           <Route exact path='/login' component={Login}/>
           <Route exact path='/' component={Signup} />
       </Switch>

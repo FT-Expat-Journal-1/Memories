@@ -7,7 +7,8 @@ import {
     GET_TRAVELER_START,
     GET_TRAVELER_SUCCESS,
 
-    DELETE_TRAVELER_SUCCESS
+    DELETE_TRAVELER_SUCCESS,
+    DELETE_POST_SUCCESS 
 
 } from '../actions';
 
@@ -33,28 +34,24 @@ export const reducer = (state = initialState, action) => {
 
 
         case GET_POST_START:
-            return{
-                ...state,
-                post: action.payload
-            }
-            case GET_POST_SUCCESS:
-            return{
-                ...state,
-                posts: action.payload
-            }
+        return{
+            ...state,
+            post: action.payload
+        }
 
-
-
-
-
-
+        case GET_POST_SUCCESS:
+        return{
+            ...state,
+            posts: action.payload
+        }
 
         case GET_TRAVELER_START:
-            return {
-                ...state,
-                isLoading: true,
-                error: ''
-            }
+        return {
+            ...state,
+            isLoading: true,
+            error: ''
+        }
+        
         case GET_TRAVELER_SUCCESS:
         return {
             ...state,
@@ -68,6 +65,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 error: ''
             }
+    
+        case DELETE_POST_SUCCESS:
+        return {
+            ...state,
+            error: ''
+        }
     
 
         case SET_TRAVELER_ID:
