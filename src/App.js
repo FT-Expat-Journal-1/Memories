@@ -28,12 +28,12 @@ function App() {
 
       <Switch>
           <PrivateRoute path='/dashboard' component={Dashboard} />
-          <Route path='/profile' component={ProfilePage} />
-          <Route path='/setting' component={ProfileSetting}/>
-          <Route path='/update-setting' component={ProfileSettingCardForm} />
-          <Route path='/update-post/:id' component={ProfilePostsForm} />
-          <Route path="/login" component={Login}/>
-          <Route path="/" component={Signup} />
+          <Route exact path='/profile' component={ProfilePage} />
+          <Route exact path='/setting' component={ProfileSetting}/>
+          <Route exact path='/update-setting' component={ProfileSettingCardForm} />
+          <Route exact path='/update-post/:id' component={ProfilePostsForm} />
+          <Route path='/login' component={Login}/>
+          <Route path='/' component={Signup} />
       </Switch>
     </div>
   );
