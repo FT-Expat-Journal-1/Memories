@@ -46,7 +46,7 @@ export const Login = props => {
           <input name='password' type='password' placeholder='Password' value={userLogin.password} onChange={handleChange} />
           <button>Login</button>
           <label>Don’t have an account?</label>
-          <button className='signUpBtn'><NavLink to='/'>Sign up</NavLink></button>
+          <button className='signUpBtn'><NavLink to="/">Sign up</NavLink></button>
         </form>
       </div>
     );
