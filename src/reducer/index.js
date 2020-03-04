@@ -4,6 +4,8 @@ import {
     SET_TRAVELER_ID,
     GET_POST_START,
     GET_POST_SUCCESS,
+    ADD_POST_START,
+    ADD_POST_SUCCESS,
     GET_TRAVELER_START,
     GET_TRAVELER_SUCCESS,
 
@@ -36,13 +38,25 @@ export const reducer = (state = initialState, action) => {
         case GET_POST_START:
         return{
             ...state,
-            post: action.payload
+            isLoading: true
         }
-
         case GET_POST_SUCCESS:
         return{
             ...state,
             posts: action.payload
+        }
+
+        
+        case ADD_POST_START:
+        return{
+            ...state,
+            isLoading: true
+        }
+        
+        case ADD_POST_SUCCESS:
+        return{
+            ...state,
+            post: action.payload
         }
 
         case GET_TRAVELER_START:
