@@ -2,7 +2,13 @@
 
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import axios from 'axios';
+
+const FormBack = styled.div`
+background-color: #F4F5F7;
+width: 25%;
+margin: 0 auto;`
 
 export const Signup = props => {
     const [userSignUp, setUserSignUp] = useState({
@@ -45,6 +51,7 @@ export const Signup = props => {
     return (
         <div className='signup-container'>
                 <h1>Sign Up Page</h1>
+                <FormBack>
                 <form onSubmit={submitForm}>
                     <input name='username' type='text' placeholder='User Name' value={userSignUp.username} onChange={handleChange} /> 
                     <input name='password' type='password' placeholder='Password' value={userSignUp.password} onChange={handleChange} />
@@ -55,6 +62,7 @@ export const Signup = props => {
                     <label>Already have an account?</label>
                     <button><NavLink to='/login'>Log in</NavLink></button>
                 </form>
+                </FormBack>
         </div>
     )
 }
