@@ -17,7 +17,7 @@ export const Dashboard = () => {
     },[getPostData])
 
     const posts = useSelector(state => state.posts);
- 
+    console.log("dashboard posts", posts);
     return (
         <div>
             <div>

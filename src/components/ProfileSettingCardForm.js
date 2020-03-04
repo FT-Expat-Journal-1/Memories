@@ -1,8 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTravelerData, editTravelerData } from '../actions';
-const travelerID = window.localStorage.getItem('traveler_id');
-
 
 export const ProfileSettingCardForm = props => {
   
@@ -18,7 +16,8 @@ export const ProfileSettingCardForm = props => {
     };
 
     const [profile, SetProfile] = useState(initialState);
-
+    const travelerID = window.localStorage.getItem('traveler_id');
+    
     const handleChanges = event => {
         SetProfile({
             ...profile,
