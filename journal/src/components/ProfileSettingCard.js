@@ -1,14 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteTravelerData } from '../actions';
 
 export const ProfileSettingCard = props => {
     console.log('ProfileSettingCard props', props)
     const travelerID = window.localStorage.getItem('traveler_id');
     const dispatch = useDispatch();
-    const profileExist = useSelector(state => state.profileExist);
 
+    const handleEdit = event => {
+        event.preventDefault();
+
+    }
 
     const handleDelete = event => {
         event.preventDefault();
@@ -21,8 +24,8 @@ export const ProfileSettingCard = props => {
         <p>{props.user.first_name}</p>
         <p>{props.user.last_name}</p>
         <p>{props.user.email}</p>
-        <button onClick={handleDelete}>
-            <NavLink to ={`/update-setting/${travelerID}`}>Edit</NavLink>
+        <button onClick={handleEdit}>
+        <NavLink to='/update-setting'> Edit </NavLink>
         </button>
         <button onClick={handleDelete}>
 

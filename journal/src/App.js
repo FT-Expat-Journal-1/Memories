@@ -27,9 +27,9 @@ function App() {
 
       <Switch>
           <PrivateRoute path='/dashboard' component={Dashboard} />
-          <Route exact path='/profile/' component={ProfilePage} />
-          <Route exact path='/setting/' component={ProfileSetting}/>
-          <Route exact path='update-setting/:id' component={ProfileSettingCardForm} />
+          <Route exact path='/profile' component={ProfilePage} />
+          <Route exact path='/setting' component={ProfileSetting}/>
+          <Route exact path='/update-setting' component={ProfileSettingCardForm} />
           <Route exact path='/login' component={Login}/>
           <Route exact path='/' component={Signup} />
       </Switch>
