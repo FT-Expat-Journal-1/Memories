@@ -3,11 +3,14 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setTravelerID } from '../actions';
 
 export const Login = props => {
+  const setTraveler = useDispatch();
+
     const [userLogin, setUserLogin] = useState({
-        name: '',
-        email: '',
+        username: '',
         password: ''
     })
   
@@ -21,11 +24,14 @@ export const Login = props => {
       event.preventDefault();
       axiosWithAuth()
       //Check API Endpoint
-      .post('api/login', userLogin)
+      .post('api/auth/login', userLogin)
       .then(res =>{
         console.log('User Login', res);
-            window.localStorage.setItem('token', res.data.payload);
+            window.localStorage.setItem('token', res.data.token);
+            window.localStorage.setItem('traveler_id', res.data.id);
+            // setTraveler(setTravelerID(res.data.id));
             props.history.push('/dashboard');
+            
       })
       .catch(err=>{
           console.log('Login post error', err)
@@ -36,8 +42,7 @@ export const Login = props => {
       <div>
         <h1>Login Page</h1>
         <form onSubmit={submitLogin}>
-          <input name='name' type='text' placeholder='Name' value={userLogin.name} onChange={handleChange} /> 
-          <input name='email' type='text' placeholder='Email' value={userLogin.email} onChange={handleChange} />
+          <input name='username' type='text' placeholder='User Name' value={userLogin.username} onChange={handleChange} />
           <input name='password' type='password' placeholder='Password' value={userLogin.password} onChange={handleChange} />
           <button>Login</button>
           <label>Don’t have an account?</label>

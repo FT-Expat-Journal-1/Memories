@@ -1,21 +1,70 @@
 // Component - Actions
-
 import axios from 'axios';
+import { axiosWithAuth } from '../utils'
 
-export const FETCH_PROFILE_DATA = "GET_DATA_START"; //using loading spinners?
-export const FETCH_DATA_SUCCESS = "GET_DATA_SUCCESS";
-export const FETCH_DATA_FAILURE = "GET_DATA_FAILURE";
+export const SET_TRAVELER_ID = 'SET_TRAVELER_ID';
+export const GET_POST_START = 'GET_POST_START';
+export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
+export const GET_TRAVELER_START = 'GET_TRAVELER_START';
+export const GET_TRAVELER_SUCCESS = 'GET_TRAVELER_SUCCESS';
+export const DELETE_TRAVELER_START = 'DELETE_TRAVELER_START';
+export const DELETE_TRAVELER_SUCCESS = 'DELETE_TRAVELER_SUCCESS';
 
-export const fetchProfileData = data => dispatch => {
-        dispatch({type: FETCH_PROFILE_DATA})
-        axios.get('https://')
-        .then(res => {
-            console.log(res) // res.data
-            dispatch({type: FETCH_DATA_SUCCESS, payload: res.data})
+export const setTravelerID = travelerID => dispatch => {
+    dispatch({type: SET_TRAVELER_ID, payload: travelerID});
+}
 
+export const getPostData = data => dispatch => {
+    dispatch({ type: GET_POST_START });
+    axiosWithAuth()
+        .get('/api/posts')
+        .then(response => {
+            console.log("Dashboard GET all traveler response", response);
+            dispatch({type: GET_POST_SUCCESS, payload:response.data});
         })
-        .catch(err => {
-            console.log(err)
-            alert('Currency not recognize, please check and try again.')
-        })
-    }
+        .catch(error => console.log("Dashboard GET all traveler respsonse error", error));
+}
+
+
+export const getTravelerData = id => dispatch => {
+    dispatch({ type: GET_TRAVELER_START }); 
+    axiosWithAuth()
+    .get(`https://expatjournal-api.herokuapp.com/api/users/${id}`)
+    .then(response => {
+        console.log('Profile Page GET response', response);
+        dispatch({type: GET_TRAVELER_SUCCESS, payload:response.data.user});
+    })
+    .catch(error=> console.log('Profile Page GET error',error))
+}
+
+export const deleteTravelerData = id => dispatch => {
+
+    dispatch({ type: DELETE_TRAVELER_START }); 
+    axiosWithAuth()
+    .delete(`https://expatjournal-api.herokuapp.com/api/users/${id}`)
+    .then(response => {
+        console.log('Profile Page DELETE response', response);
+        dispatch({type: DELETE_TRAVELER_SUCCESS, payload:response.data.user});
+    })
+    .catch(error=> console.log('Profile Page GET error',error))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

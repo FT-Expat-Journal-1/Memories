@@ -1,33 +1,36 @@
 // Component - Fetch all travelers data and pass down to <ProfilePosts> component
 
-import React from 'react';
-import { connect } from 'react=redux';
-import { ProfilePosts } from './ProfilePosts';
-import { fetchProfileData } from '../actions';
+import React, {useEffect} from 'react';
+import { axiosWithAuth } from '../utils'
+import { connect } from 'react-redux';
 
 
-export const Profile = props => {
+const ProfilePage = props => {
     console.log("Profile Page props", props);
+
+    const id = props.travelerID;
+
+    useEffect(()=>{
+        axiosWithAuth()
+        .get(`https://expatjournal-api.herokuapp.com/api/users/${id}`)
+        .then(response => {
+            console.log('Profile Page GET', response);
+
+        })
+    },[])
 
         return (
             <div>
-                {props.profilePosts && !props.isLoading && (
-                    <div>
-                        <ProfilePosts rates = {props.profilePosts.rates}/*Pass props from API*//>
-                    </div>
-                )}
+                hello travelerID: {props.travelerID}
+
             </div>
         )
     }
 
-
     const mapStateToProps = state => {
         return {
-        profilePosts: state.profilePosts,
-        isLoading: state.isLoading,
-        error: state.error,
-        amount: state.amount,
+            travelerID: state.travelerID,
         }
     }
-
-export default connect(mapStateToProps, {fetchProfileData})(ExchangeRateTable);
+    
+export default connect(mapStateToProps)(ProfilePage);

@@ -6,9 +6,11 @@ import axios from 'axios';
 
 export const Signup = props => {
     const [userSignUp, setUserSignUp] = useState({
-        name: '',
-        email: '',
-        password: ''
+        username: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+        email: ''
     })
 
     const handleChange = event => {
@@ -21,7 +23,7 @@ export const Signup = props => {
         event.preventDefault();
 
         axios
-        .post('http://localhost:5000/api/login', userSignUp)
+        .post('https://expatjournal-api.herokuapp.com/api/auth/register', userSignUp)
         .then(response => {
             console.log('signup response', response)
             props.history.push('/login');
@@ -32,9 +34,11 @@ export const Signup = props => {
         })
 
         setUserSignUp({
-            name: '',
             username: '',
-            password: ''
+            password: '',
+            first_name: '',
+            last_name: '',
+            email: ''
         })
     }
 
@@ -42,9 +46,11 @@ export const Signup = props => {
         <div className='signup-container'>
                 <h1>Sign Up Page</h1>
                 <form onSubmit={submitForm}>
-                    <input name='name' type='text' placeholder='Name' value={userSignUp.name} onChange={handleChange} /> 
-                    <input name='email' type='text' placeholder='Email' value={userSignUp.email} onChange={handleChange} />
+                    <input name='username' type='text' placeholder='User Name' value={userSignUp.username} onChange={handleChange} /> 
                     <input name='password' type='password' placeholder='Password' value={userSignUp.password} onChange={handleChange} />
+                    <input name='first_name' type='text' placeholder='First Name' value={userSignUp.first_name} onChange={handleChange} />
+                    <input name='last_name' type='text' placeholder='Last Name' value={userSignUp.last_name} onChange={handleChange} />
+                    <input name='email' type='text' placeholder='Email' value={userSignUp.email} onChange={handleChange} />
                     <button>Sign Up</button>
                     <label>Already have an account?</label>
                     <button><NavLink to='/login'>Log in</NavLink></button>
