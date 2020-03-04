@@ -32,8 +32,8 @@ function App() {
           <Route path='/setting' component={ProfileSetting}/>
           <Route path='/update-setting' component={ProfileSettingCardForm} />
           <Route path='/update-post/:id' component={ProfilePostsForm} />
-          <Route path='/login' component={Login}/>
-          <Route path='/' component={Signup} />
+          <Route path="/login" component={Login}/>
+          <Route path="/" component={Signup} />
       </Switch>
     </div>
   );
