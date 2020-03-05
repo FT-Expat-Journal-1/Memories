@@ -4,7 +4,8 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPostData } from '../actions';
-import { DashboardTravelerPosts } from './DashboardTravelerPosts'
+import { DashboardTravelerPosts } from './DashboardTravelerPosts';
+import './Dashboard.scss';
 
 export const Dashboard = () => {
     const dispatch = useDispatch();
@@ -22,8 +23,11 @@ export const Dashboard = () => {
 
     return (
         <div>
-             <header>
-                 <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+            <header>
+                <div class="navDiv">
+                    <a href='https://ft-expat-journal-1.github.io/Expat-Journal-Marketing-Page/' className='captureLogo'>Capture</a>
+                    <NavLink className='logOut' onClick={logOut} to='/login' >Log Out</NavLink>
+                </div>
             </header> 
             <div>
                 <NavLink to='/dashboard'>Dashboard</NavLink>

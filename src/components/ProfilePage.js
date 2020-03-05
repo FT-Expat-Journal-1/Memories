@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPostData, getTravelerPostData } from '../actions';
 import { ProfilePosts } from '././ProfilePosts';
-import logo from '../img/Capture.png'
 import './ProfilePage.scss';
 
 export const ProfilePage = props => {
@@ -28,8 +27,8 @@ export const ProfilePage = props => {
         <div>
             <header>
                 <div class="navDiv">
-                    {/* <img src={logo} alt="logo" />    */}
-                    <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+                    <a href='https://ft-expat-journal-1.github.io/Expat-Journal-Marketing-Page/' className='captureLogo'>Capture</a>
+                    <NavLink className='logOut' onClick={logOut} to='/login' >Log Out</NavLink>
                 </div>
             </header> 
             <div>
@@ -46,14 +45,3 @@ export const ProfilePage = props => {
         </div>
     )
 }
-
-{/* <div class="navDiv">
-            <img src="images/Capture.png" alt="logo in a scripty text that says Capture">
-            <div class="navDivTwo">
-                <nav>
-                    <a href="aboutus.html">About Us</a>
-                    <a href="#">Sign In</a>
-                </nav>
-                <button class="theButton">Sign Up</button>
-            </div><!--closes navDiv2-->
-        </div><!--Closes navDiv--></div> */}
