@@ -20,7 +20,7 @@ export const ProfilePosts = props => {
             <p>{props.body}</p>
             <div className='post-edit-delete-div'>
                 <button className='post-btns'><NavLink to={`/update-post/${props.id}`} className='post-btns-nav'> Edit </NavLink></button>
-                <button className='post-btns' onClick={handleDelete}><NavLink to='/dashboard' className='post-btns-nav'> Delete </NavLink></button>
+                <button className='post-btns' onClick={handleDelete}><NavLink to='/profile' className='post-btns-nav'> Delete </NavLink></button>
             </div>
         </div>
     )
