@@ -12,18 +12,19 @@ const initialState = {
 export const ProfilePostsForm = props => {
     console.log('ProfilePostsForm props', props);
     const { id } = useParams();
-    const posts = useSelector(state => state.posts);
+    const travelerPosts = useSelector(state => state.travelerPosts);
     const dispatch = useDispatch();
-
+ 
     const [post, setPost] = useState(initialState);
 
     useEffect(() => {
-        const postToUpdate = posts.find(posts => `${posts.id}` === id);
+        const postToUpdate = travelerPosts.find(posts => `${posts.id}` === id);
+        console.log('postToUpdate posts: ', travelerPosts);
         console.log('postToUpdate String: ', postToUpdate);
         if (postToUpdate) {
             setPost(postToUpdate);
         }
-    }, [posts,id]);
+    }, [travelerPosts,id]);
 
     const handleChanges = event => {
         setPost({

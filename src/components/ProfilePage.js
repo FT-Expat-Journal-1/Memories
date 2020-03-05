@@ -2,27 +2,37 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { getPostData } from '../actions';
+import { getPostData, getTravelerPostData } from '../actions';
 import { ProfilePosts } from '././ProfilePosts'
 
 export const ProfilePage = props => {
     const dispatch = useDispatch();
+    const travelerID = window.localStorage.getItem('traveler_id');
+
+    const logOut = () => {
+        window.localStorage.removeItem('token');
+        window.localStorage.removeItem('traveler_id');
+      }
     
     useEffect(() => {
-        dispatch(getPostData());
-    },[getPostData])
+        dispatch(getTravelerPostData(travelerID));
+    },[getTravelerPostData])
 
-    const posts = useSelector(state => state.posts);
-    console.log('this is post', posts)
+    const posts = useSelector(state => state.travelerPosts);
+    const firstName = useSelector(state => state.user.first_name);
+    console.log("first name", firstName);
 
     return (
         <div>
+            <header>
+                 <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+            </header> 
             <div>
                 <NavLink to='/dashboard'>Dashboard</NavLink>
                 <NavLink to='/profile'>Profile</NavLink>
                 <NavLink to='/setting'>Setting</NavLink>
             </div>
-            <div>This is Dashboard</div>
+            <div>What's on your mind {firstName}? </div>
             <button><NavLink to='/add-post'>Add Post</NavLink></button>
             {posts.map(posts=> {
                 return <ProfilePosts key={posts.id} id={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>

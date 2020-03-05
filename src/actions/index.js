@@ -7,6 +7,8 @@ export const GET_POST_START = 'GET_POST_START';
 export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 export const ADD_POST_START = 'ADD_POST_START';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
+export const GET_TRAVELER_POST_START = 'GET_TRAVELER_POST_START';
+export const GET_TRAVELER_POST_SUCCESS = 'GET_TRAVELER_POST_SUCCESS';
 export const EDIT_POST_START = 'EDIT_POST_START';
 export const EDIT_POST_SUCCESS = 'EDIT_POST_START';
 export const DELETE_POST_START = 'DELETE_POST_START';
@@ -34,6 +36,17 @@ export const getPostData = data => dispatch => {
         dispatch({type: GET_POST_SUCCESS, payload:response.data});
     })
     .catch(error => console.log("Dashboard GET all traveler respsonse error", error));
+}
+
+export const getTravelerPostData = userID => dispatch => {
+    dispatch ( { type: GET_TRAVELER_POST_START})
+    axiosWithAuth()
+    .get(`/api/users/${userID}/posts`)
+    .then(response=>{
+        console.log("getTravelerPostData GET response",response );
+        dispatch({type: GET_TRAVELER_POST_SUCCESS, payload: response.data})
+    })
+    .catch(error => console.log('getTravelerPostData GET error', error));
 }
 
 export const addPostData = data => dispatch => {
@@ -73,7 +86,7 @@ export const getTravelerData = id => dispatch => {
     .get(`/api/users/${id}`)
     .then(response => {
         console.log('Profile Page GET response', response);
-        dispatch({type: GET_TRAVELER_SUCCESS, payload:response.data.user});
+        dispatch({type: GET_TRAVELER_SUCCESS, payload:response.data});
     })
     .catch(error=> console.log('Profile Page GET error',error))
 }
@@ -94,7 +107,7 @@ export const deleteTravelerData = id => dispatch => {
     .delete(`/api/users/${id}`)
     .then(response => {
         console.log('Profile Page DELETE response', response);
-        dispatch({type: DELETE_TRAVELER_SUCCESS, payload:response.data.user});
+        dispatch({type: DELETE_TRAVELER_SUCCESS, payload:response.data});
     })
     .catch(error=> console.log('Profile Page GET error',error))
 }

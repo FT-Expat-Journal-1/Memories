@@ -14,18 +14,11 @@ import './App.css';
 
 function App() {
 
-  const logOut = () => {
-    window.localStorage.removeItem('token');
-    window.localStorage.removeItem('traveler_id');
-  }
 
 
   return (
     <div className="App">
-      <header>
-      <NavLink to='/' >Sign Up</NavLink>
-      <NavLink onClick={logOut} to='/login' >Log out</NavLink>
-      </header>
+      
 
       <Switch>
           <PrivateRoute path='/dashboard' component={Dashboard} />
