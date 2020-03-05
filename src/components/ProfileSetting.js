@@ -52,8 +52,8 @@ export const ProfileSetting = props => {
                          </div>
                     </div>
 
-                    <div className="setting-cards-div">
-                        Hello {props.firstName}
+                    <div>
+                      
                         {!props.isLoading && (
                             <ProfileSettingCard user={props.user}/>
                         )}
