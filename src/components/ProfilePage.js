@@ -55,12 +55,14 @@ export const ProfilePage = props => {
                     </div>
                 </div>
 
-                <div>
+                <div className='main-container-menu-post'>
                     <div>What's on your mind {firstName}? </div>
-                    <button><NavLink to='/add-post'>Add Post</NavLink></button>
-                    {posts.map(posts=> {
-                        return <ProfilePosts key={posts.id} id={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>
-                    })}
+                    <button className='post-add-btns'><NavLink to='/add-post' className='post-add-btns-nav'>Add Post</NavLink></button>
+                    <div className='post-cards'>
+                        {posts.map(posts=> {
+                            return <ProfilePosts key={posts.id} id={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

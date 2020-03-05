@@ -51,12 +51,12 @@ export const Dashboard = () => {
                         <NavLink to='/setting' className='main-container-menu-buttons'>Setting</NavLink>
                     </div>
                 </div>
-            
 
-
-                {posts.map(posts=> {
-                    return <DashboardTravelerPosts key={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>
-                })}
+                <div className='main-container-menu-post'>            
+                    {posts.map(posts=> {
+                        return <DashboardTravelerPosts key={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>
+                    })}
+                </div>
             </div>
         </div>
     )
