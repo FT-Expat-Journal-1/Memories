@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTravelerData } from '../actions';
+import './ProfileSettingCard.scss';
 
 export const ProfileSettingCard = props => {
     console.log('ProfileSettingCard props', props)
@@ -18,7 +19,7 @@ export const ProfileSettingCard = props => {
     }
 
     return (
-        <div>
+        <div className='profileSettingCard'>
             <p>User Name: {props.user.username}</p>
             <p>First Name: {props.user.first_name}</p>
             <p>Last Name: {props.user.last_name}</p>
