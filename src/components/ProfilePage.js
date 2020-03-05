@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPostData, getTravelerPostData } from '../actions';
-import { ProfilePosts } from '././ProfilePosts'
+import { ProfilePosts } from '././ProfilePosts';
+import './ProfilePage.scss';
 
 export const ProfilePage = props => {
     const dispatch = useDispatch();
@@ -25,7 +26,10 @@ export const ProfilePage = props => {
     return (
         <div>
             <header>
-                 <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+                <div class="navDiv">
+                    <a href='https://ft-expat-journal-1.github.io/Expat-Journal-Marketing-Page/' className='captureLogo'>Capture</a>
+                    <NavLink className='logOut' onClick={logOut} to='/login' >Log Out</NavLink>
+                </div>
             </header> 
             <div>
                 <NavLink to='/dashboard'>Dashboard</NavLink>

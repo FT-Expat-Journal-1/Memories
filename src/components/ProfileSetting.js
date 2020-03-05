@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getTravelerData } from '../actions';
 import { ProfileSettingCard } from './ProfileSettingCard';
+import './ProfileSetting.scss';
 
 export const ProfileSetting = props => {
     console.log('ProfileSetting props',props.user)
@@ -21,8 +22,11 @@ export const ProfileSetting = props => {
         return (
             <div>
                 <header>
-                 <NavLink onClick={logOut} to='/login' >Log out</NavLink>
-                </header> 
+                    <div class="navDiv">
+                    <a href='https://ft-expat-journal-1.github.io/Expat-Journal-Marketing-Page/' className='captureLogo'>Capture</a>
+                    <NavLink className='logOut' onClick={logOut} to='/login' >Log Out</NavLink>
+                    </div>
+                 </header> 
                 <div>
                     <NavLink to='/dashboard'>Dashboard</NavLink>
                     <NavLink to='/profile'>Profile</NavLink>

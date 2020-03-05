@@ -7,6 +7,11 @@ export const InternalUserTest = () =>{
 
     const [testUsers, setTestUsers] = useState([]);
 
+    const logOut = () => {
+        window.localStorage.removeItem('token');
+        window.localStorage.removeItem('traveler_id');
+    }
+
     useEffect(()=>{
         axiosWithAuth()
         .get('/api/users')
@@ -20,9 +25,12 @@ export const InternalUserTest = () =>{
     console.log('testUsers', testUsers);
     return (
         <div>
-            <h1>User Database</h1>
-            <NavLink to='/dashboard'>Dashboard</NavLink>
-            <NavLink to='/profile'>Profile</NavLink>
+            <header>
+                <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+            </header> 
+            <h1>Users Database</h1>
+            <NavLink to='/internal-test'>Profiles</NavLink>
+            <NavLink to='/internal-post'>Posts</NavLink>
             <NavLink to='/setting'>Setting</NavLink>
             {testUsers.map(users => {
                 return <InternalUserTestCard 
