@@ -25,7 +25,14 @@ export const Login = props => {
         console.log('User Login', res);
             window.localStorage.setItem('token', res.data.token);
             window.localStorage.setItem('traveler_id', res.data.id);
-            props.history.push('/dashboard');
+            const travelerID = window.localStorage.getItem('traveler_id');
+
+            if(parseInt(travelerID) === 12) { 
+              props.history.push('/internal-test'); 
+            }
+            else{
+              props.history.push('/dashboard'); 
+            };
       })
       .catch(err=>{
           console.log('Login post error', err)

@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPostData, getTravelerPostData } from '../actions';
-import { ProfilePosts } from '././ProfilePosts'
+import { ProfilePosts } from '././ProfilePosts';
+import logo from '../img/Capture.png'
+import './ProfilePage.scss';
 
 export const ProfilePage = props => {
     const dispatch = useDispatch();
@@ -25,7 +27,10 @@ export const ProfilePage = props => {
     return (
         <div>
             <header>
-                 <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+                <div class="navDiv">
+                    {/* <img src={logo} alt="logo" />    */}
+                    <NavLink onClick={logOut} to='/login' >Log out</NavLink>
+                </div>
             </header> 
             <div>
                 <NavLink to='/dashboard'>Dashboard</NavLink>
@@ -41,3 +46,14 @@ export const ProfilePage = props => {
         </div>
     )
 }
+
+{/* <div class="navDiv">
+            <img src="images/Capture.png" alt="logo in a scripty text that says Capture">
+            <div class="navDivTwo">
+                <nav>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="#">Sign In</a>
+                </nav>
+                <button class="theButton">Sign Up</button>
+            </div><!--closes navDiv2-->
+        </div><!--Closes navDiv--></div> */}
