@@ -5,10 +5,11 @@ import { Signup } from './components/Signup';
 import { Login } from './components/Login';
 import { Dashboard } from './components/Dashboard';
 import { ProfilePage } from './components/ProfilePage';
+import { PostCreateForm } from './components/PostCreateForm';
 import { ProfilePostsForm } from './components/ProfilePostsForm';
+import { InternalUserTest } from './components/InternalUserTest';
 import ProfileSetting from './components/ProfileSetting';
 import { ProfileSettingCardForm } from './components/ProfileSettingCardForm';
-
 import './App.css';
 
 function App() {
@@ -28,12 +29,14 @@ function App() {
 
       <Switch>
           <PrivateRoute path='/dashboard' component={Dashboard} />
-          <Route exact path='/profile' component={ProfilePage} />
-          <Route exact path='/setting' component={ProfileSetting}/>
-          <Route exact path='/update-setting' component={ProfileSettingCardForm} />
-          <Route exact path='/update-post/:id' component={ProfilePostsForm} />
-          <Route exact path='/login' component={Login}/>
-          <Route exact path='/' component={Signup} />
+          <Route path='/profile' component={ProfilePage} />
+          <Route path='/setting' component={ProfileSetting} />
+          <Route path='/update-setting' component={ProfileSettingCardForm} />
+          <Route path='/add-post' component={PostCreateForm} />
+          <Route path='/update-post/:id' component={ProfilePostsForm} />
+          <Route path ='/internal-test' component={InternalUserTest} />
+          <Route path='/login' component={Login} />
+          <Route path='/' component={Signup} />
       </Switch>
     </div>
   );

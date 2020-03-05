@@ -5,18 +5,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getPostData } from '../actions';
 import { ProfilePosts } from '././ProfilePosts'
 
-
 export const ProfilePage = props => {
     const dispatch = useDispatch();
     
-    
-
     useEffect(() => {
         dispatch(getPostData());
     },[getPostData])
 
     const posts = useSelector(state => state.posts);
- 
+    console.log('this is post', posts)
+
     return (
         <div>
             <div>
@@ -25,6 +23,7 @@ export const ProfilePage = props => {
                 <NavLink to='/setting'>Setting</NavLink>
             </div>
             <div>This is Dashboard</div>
+            <button><NavLink to='/add-post'>Add Post</NavLink></button>
             {posts.map(posts=> {
                 return <ProfilePosts key={posts.id} id={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>
             })}
