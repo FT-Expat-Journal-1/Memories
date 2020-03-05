@@ -20,7 +20,7 @@ export const InternalUserTest = () =>{
     console.log('testUsers', testUsers);
     return (
         <div>
-            Test
+            <h1>User Database</h1>
             <NavLink to='/dashboard'>Dashboard</NavLink>
             <NavLink to='/profile'>Profile</NavLink>
             <NavLink to='/setting'>Setting</NavLink>

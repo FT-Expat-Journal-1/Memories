@@ -4,9 +4,6 @@ import './InternalUserTestCard.scss';
 export const InternalUserTestCard = props => {
     console.log('InternalUserTestCard props', props)
     return(
-        <div>
-
-
         <div className="userCard">
             <p>id: {props.id}</p>
             <p>Username: {props.username}</p>
@@ -14,7 +11,6 @@ export const InternalUserTestCard = props => {
             <p>First Name: {props.first_name}</p>
             <p>Last Name: {props.last_name}</p>
             <p>E-mail: {props.email}</p>
-        </div>
         </div>
     )
 }

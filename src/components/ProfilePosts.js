@@ -3,11 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getPostData, deletePostData } from '../actions';
 
-
 export const ProfilePosts = props => {
     console.log("ProfilePosts props", props)
     const dispatch = useDispatch();
- 
  
     const handleDelete = event => {
         event.preventDefault();
@@ -19,7 +17,7 @@ export const ProfilePosts = props => {
         <div>
             <p>{props.title}</p>
             <p>{props.body}</p>
-            <img src={props.imgURL} />
+            <img src={props.imgURL} alt='Not found' />
             <button><NavLink to={`/update-post/${props.id}`}> Edit </NavLink></button>
             <button onClick={handleDelete}><NavLink to='/profile' > Delete </NavLink></button>
         </div>

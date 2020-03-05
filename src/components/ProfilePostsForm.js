@@ -8,6 +8,7 @@ const initialState = {
     body: '',
     img_url: ''
 }
+
 export const ProfilePostsForm = props => {
     console.log('ProfilePostsForm props', props);
     const { id } = useParams();
@@ -23,8 +24,6 @@ export const ProfilePostsForm = props => {
             setPost(postToUpdate);
         }
     }, [posts,id]);
-
-
 
     const handleChanges = event => {
         setPost({
