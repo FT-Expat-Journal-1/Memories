@@ -55,7 +55,7 @@ export const ProfilePage = props => {
                     </div>
                 </div>
 
-                <div className='main-container-menu-post'>
+                <div className='main-container-post'>
                     <div>What's on your mind {firstName}? </div>
                     <button className='post-add-btns'><NavLink to='/add-post' className='post-add-btns-nav'>Add Post</NavLink></button>
                     <div className='post-cards'>
