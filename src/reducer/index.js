@@ -6,6 +6,8 @@ import {
     GET_POST_SUCCESS,
     ADD_POST_START,
     ADD_POST_SUCCESS,
+    GET_TRAVELER_POST_START,
+    GET_TRAVELER_POST_SUCCESS,
     GET_TRAVELER_START,
     GET_TRAVELER_SUCCESS,
 
@@ -21,6 +23,7 @@ const initialState = {
     error: '',
     travelerID: 0,
     posts: [],
+    travelerPosts: [],
     user: {
         id: 0,
         username: '',
@@ -28,7 +31,8 @@ const initialState = {
         first_name: '',
         last_name: '',
         email: ''
-    }
+    },
+    
 }
 
 export const reducer = (state = initialState, action) => {
@@ -45,8 +49,17 @@ export const reducer = (state = initialState, action) => {
             ...state,
             posts: action.payload
         }
+        case GET_TRAVELER_POST_START:
+        return{
+            ...state,
+            isLoading: true
+        }
+        case GET_TRAVELER_POST_SUCCESS:
+        return{
+            ...state,
+            travelerPosts: action.payload
+        }
 
-        
         case ADD_POST_START:
         return{
             ...state,
