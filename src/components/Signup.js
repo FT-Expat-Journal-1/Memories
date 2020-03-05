@@ -5,10 +5,33 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
+
 const FormBack = styled.div`
 background-color: #F4F5F7;
-width: 25%;
+width: 690px;
+height: 495.59px;
 margin: 0 auto;`
+
+const Capture = styled.h1`
+color: #3C5955;
+font-size: 50px;
+font-family: Lobster;
+`
+const Button = styled.button`
+background: #38A1DE;
+border-radius: 5px;
+width: 400px;
+height: 35px;
+`
+const Input = styled.input`
+font    : 1.4em/1.5em 
+border  : none;
+padding : 0 10px;
+margin  : 0;
+width   : 400px;
+height: 5vh;
+`
+
 
 export const Signup = props => {
     const [userSignUp, setUserSignUp] = useState({
@@ -48,19 +71,39 @@ export const Signup = props => {
         })
     }
 
+
+
+
     return (
         <div className='signup-container'>
-                <h1>Sign Up Page</h1>
+                <Capture>Capture</Capture>
                 <FormBack>
                 <form onSubmit={submitForm}>
-                    <input name='username' type='text' placeholder='User Name' value={userSignUp.username} onChange={handleChange} /> 
-                    <input name='password' type='password' placeholder='Password' value={userSignUp.password} onChange={handleChange} />
-                    <input name='first_name' type='text' placeholder='First Name' value={userSignUp.first_name} onChange={handleChange} />
-                    <input name='last_name' type='text' placeholder='Last Name' value={userSignUp.last_name} onChange={handleChange} />
-                    <input name='email' type='text' placeholder='Email' value={userSignUp.email} onChange={handleChange} />
-                    <button>Sign Up</button>
+                    <div>
+                    
+                    <Input name='username' type='text' placeholder='Username' value={userSignUp.username} onChange={handleChange} required/> 
+                    </div>
+                    <br/>
+                    <div>
+                    <Input name='password' type='password' placeholder='Password' value={userSignUp.password} onChange={handleChange} required/>
+                    </div>
+                    <br/>
+                    <div>
+                    <Input name='first_name' type='text' placeholder='First Name' value={userSignUp.first_name} onChange={handleChange} required />
+                    </div>
+                    <br/>
+                    <div>
+                    <Input name='last_name' type='text' placeholder='Last Name' value={userSignUp.last_name} onChange={handleChange} required/>
+                    </div>
+                    <br/>
+                    <div>
+                    <Input name='email' type='text' placeholder='Email' value={userSignUp.email} onChange={handleChange} required />
+                    </div>
+                    <br/>
+                    <Button>Sign Up</Button>
+                    <br/>
                     <label>Already have an account?</label>
-                    <button><NavLink to="/login">Log in</NavLink></button>
+                    <button><NavLink to='/login'>Log in</NavLink></button>
                 </form>
                 </FormBack>
         </div>
