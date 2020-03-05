@@ -1,5 +1,6 @@
-import React from 'react';
+// Component - Render all traveler's posts
 
+import React from 'react';
 
 export const DashboardTravelerPosts = props => {
     console.log("DashboardTravelerPosts props", props)

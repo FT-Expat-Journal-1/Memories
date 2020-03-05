@@ -3,11 +3,8 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setTravelerID } from '../actions';
 
 export const Login = props => {
-  const setTraveler = useDispatch();
 
     const [userLogin, setUserLogin] = useState({
         username: '',
@@ -23,15 +20,12 @@ export const Login = props => {
     const submitLogin = event => {
       event.preventDefault();
       axiosWithAuth()
-      //Check API Endpoint
       .post('api/auth/login', userLogin)
       .then(res =>{
         console.log('User Login', res);
             window.localStorage.setItem('token', res.data.token);
             window.localStorage.setItem('traveler_id', res.data.id);
-            // setTraveler(setTravelerID(res.data.id));
             props.history.push('/dashboard');
-            
       })
       .catch(err=>{
           console.log('Login post error', err)

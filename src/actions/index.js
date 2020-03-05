@@ -1,24 +1,24 @@
 // Component - Actions
-import axios from 'axios';
 import { axiosWithAuth } from '../utils'
 
 export const SET_TRAVELER_ID = 'SET_TRAVELER_ID';
+
 export const GET_POST_START = 'GET_POST_START';
 export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 export const ADD_POST_START = 'ADD_POST_START';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
-
 export const EDIT_POST_START = 'EDIT_POST_START';
 export const EDIT_POST_SUCCESS = 'EDIT_POST_START';
-
 export const DELETE_POST_START = 'DELETE_POST_START';
 export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
 
 export const GET_TRAVELER_START = 'GET_TRAVELER_START';
 export const GET_TRAVELER_SUCCESS = 'GET_TRAVELER_SUCCESS';
+export const EDIT_TRAVELER_START = 'EDIT_TRAVELER_START ';
 export const DELETE_TRAVELER_START = 'DELETE_TRAVELER_START';
 export const DELETE_TRAVELER_SUCCESS = 'DELETE_TRAVELER_SUCCESS';
-export const EDIT_TRAVELER_START = 'EDIT_TRAVELER_START ';
+
+
 
 
 export const setTravelerID = travelerID => dispatch => {
@@ -67,7 +67,6 @@ export const deletePostData = id => dispatch => {
     .catch(error=> console.log('Profile Page GET error',error))
 }
 
-
 export const getTravelerData = id => dispatch => {
     dispatch({ type: GET_TRAVELER_START }); 
     axiosWithAuth()
@@ -78,7 +77,6 @@ export const getTravelerData = id => dispatch => {
     })
     .catch(error=> console.log('Profile Page GET error',error))
 }
-
 
 export const editTravelerData = (id,data) => dispatch => {
     dispatch({ type: EDIT_TRAVELER_START });
@@ -91,7 +89,6 @@ export const editTravelerData = (id,data) => dispatch => {
 }
 
 export const deleteTravelerData = id => dispatch => {
-
     dispatch({ type: DELETE_TRAVELER_START }); 
     axiosWithAuth()
     .delete(`/api/users/${id}`)
