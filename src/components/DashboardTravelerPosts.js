@@ -7,9 +7,9 @@ export const DashboardTravelerPosts = props => {
     console.log("DashboardTravelerPosts props", props)
     return(
         <div className="dash-cards-div">
-            <p>{props.title}</p>
+            <h3>{props.title}</h3>
             <img src={props.imgURL} className='postImg' />
-            <p>{props.body}</p>
+            <h4>{props.body}</h4>
         </div>
     )
 }

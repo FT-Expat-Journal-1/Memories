@@ -14,33 +14,19 @@
 
 .post-edit-delete-div{
     display: flex;
-    width: 40%;
+    width: 30%;
     justify-content: space-around;
     margin-bottom: 2%;
 }
 
 .post-btns{
-    width: 40%;
-    border: 1px solid #3C5955;
+    width: 100px;
+    border: 2px solid #3C5955;
     border-radius: 5px;
+    padding: 5%;
+    font-weight: bold;
     &:hover {
         color:white;
         background-color: #3C5955;
-    }
-}
-
-.post-btns-nav{
-    display: flex;
-    font-style: normal;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #3C5955;
-    width: 40%;
-    text-align: center;
-    padding-left: 33%;
-    padding-right: 25%;
-    &:hover {
-        color:white;
     }
 }
