@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPostData, editPostData } from '../actions';
+import { editPostData } from '../actions';
 
 const initialState = {
     title: '',
@@ -19,8 +19,6 @@ export const ProfilePostsForm = props => {
 
     useEffect(() => {
         const postToUpdate = travelerPosts.find(posts => `${posts.id}` === id);
-        console.log('postToUpdate posts: ', travelerPosts);
-        console.log('postToUpdate String: ', postToUpdate);
         if (postToUpdate) {
             setPost(postToUpdate);
         }
@@ -32,11 +30,11 @@ export const ProfilePostsForm = props => {
             [event.target.name]: event.target.value
         })
     }
+    console.log('postToUpdate Post: ', post);
 
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(editPostData(id, post)) 
-        dispatch(getPostData(id));
         props.history.push('/profile');
     }
 
@@ -50,7 +48,7 @@ export const ProfilePostsForm = props => {
             <form onSubmit={handleSubmit}>
                 <input type='text' placeholder='Title' name='title' value={post.title} onChange={handleChanges}/>
                 <input type='text' placeholder='Body' name='body' value={post.body} onChange={handleChanges}/>
-                <input type='text' placeholder='Img URL' name='imgURL' value={post.img_url} onChange={handleChanges}/>
+                <input type='text' placeholder='Img URL' name='img_url' value={post.img_url} onChange={handleChanges}/>
                 <button type="submit">Save Change</button>
             </form>
             <button onClick={returnBack}>Cancel</button>
