@@ -46,7 +46,8 @@ export const reducer = (state = initialState, action) => {
         case GET_POST_SUCCESS:
         return{
             ...state,
-            posts: action.payload
+            posts: action.payload,
+            isLoading: false
         }
         case GET_TRAVELER_POST_START:
         return{
@@ -68,7 +69,8 @@ export const reducer = (state = initialState, action) => {
         case ADD_POST_SUCCESS:
         return{
             ...state,
-            post: action.payload
+            post: action.payload,
+            isLoading: false
         }
 
         case GET_TRAVELER_START:
