@@ -5,16 +5,30 @@ import { axiosWithAuth } from '../utils/';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components'
 
-const FormBack = styled.div`
-background-color: #F4F5F7;
-width: 690px;
-height: 50vh;
-margin: 0 auto;`
+const LogIn = styled.div`
+  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80");
+  background-repeat: no-repeat;
+  height: 100vh;
+`
 
-const Capture = styled.h1`
+const FormBack = styled.div`
+background: rgba(255,255,255, 0.7);
+width: 600px;
+height: 320px;
+border-radius: 10px;
+margin: 0 auto;
+`
+
+const FormIn = styled.div`
+padding-top: 10%;
+margin-top: 5%;
+`
+
+const Capture = styled.div`
 color: #3C5955;
 font-size: 50px;
 font-family: Lobster;
+padding-top: 10%;
 `
 const Button = styled.button`
 background: #38A1DE;
@@ -67,26 +81,29 @@ export const Login = props => {
     }
     
     return (
-      <div>
+      <LogIn>
         <Capture>Capture</Capture>
        <FormBack>
         <form onSubmit={submitLogin}>
-        <div>
-          <Input name='username' type='text' placeholder='User Name' value={userLogin.username} onChange={handleChange} required /> 
-          </div>
-          <br/>
-          <div>
-          <Input name='password' type='password' placeholder='Password' value={userLogin.password} onChange={handleChange} required/>
-          </div>
-          <br/>
-          <div>
-          <Button>Login</Button>
-          </div>
-          <label>Don’t have an account?</label>
-          <button className='signUpBtn'><NavLink to="/">Sign up</NavLink></button>
+          <FormIn>
+            <div>
+            <Input name='username' type='text' placeholder='User Name' value={userLogin.username} onChange={handleChange} required /> 
+            </div>
+            <br/>
+            <div>
+            <Input name='password' type='password' placeholder='Password' value={userLogin.password} onChange={handleChange} required/>
+            </div>
+            <br/>
+            <div>
+            <Button>Login</Button>
+            </div>
+            <label>Don’t have an account?</label>
+            <br/>
+            <button className='signUpBtn'><NavLink to="/">Sign up</NavLink></button>
+          </FormIn>
         </form>
   </FormBack>
-  </div>
+  </LogIn>
     )
   };
 
