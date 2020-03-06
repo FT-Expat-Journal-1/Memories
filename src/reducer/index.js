@@ -47,7 +47,6 @@ export const reducer = (state = initialState, action) => {
         return{
             ...state,
             posts: action.payload,
-            isLoading: false
         }
         case GET_TRAVELER_POST_START:
         return{

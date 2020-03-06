@@ -9,6 +9,8 @@ import './Dashboard.scss';
 
 export const Dashboard = () => {
     const dispatch = useDispatch();
+    const isLoading = useSelector(state => state.isLoading);
+
     
     const logOut = () => {
         window.localStorage.removeItem('token');
@@ -20,7 +22,7 @@ export const Dashboard = () => {
     },[getPostData])
 
     const posts = useSelector(state => state.posts);
-
+    
     return (
         <div className='main-container'>
             <header>
