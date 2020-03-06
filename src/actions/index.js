@@ -65,7 +65,7 @@ export const editPostData = (id,data) => dispatch => {
     .put(`api/posts/${id}`,data)
     .then(response => {
         console.log('Profile Page PUT response', response);
-        // dispatch({type: EDIT_POST_SUCCESS, payload: response})
+        dispatch({type: EDIT_POST_SUCCESS, payload: response})
     })
 }
 
