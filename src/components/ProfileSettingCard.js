@@ -17,10 +17,9 @@ width: 400px;
 height: 35px;
 `
 const FormBack = styled.div`
-background-color: #F4F5F7;
 padding-top: 10%;
 width: 690px;
-height: 50vh;
+height: 30vh;
 margin: 0 auto;
 `
 
