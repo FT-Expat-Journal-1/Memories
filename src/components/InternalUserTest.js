@@ -1,11 +1,15 @@
 import React,{ useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utils/';
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import { InternalUserTestCard } from './InternalUserTestCard';
 
 export const InternalUserTest = () =>{
 
     const [testUsers, setTestUsers] = useState([]);
+    const isLoading = useSelector(state => state.isLoading);
+
+
 
     const logOut = () => {
         window.localStorage.removeItem('token');
@@ -20,7 +24,7 @@ export const InternalUserTest = () =>{
             setTestUsers(response.data);
         })
         .catch(error=> console('InternalUserTest GET response', error));
-    },[]);
+    },[isLoading]);
 
     console.log('testUsers', testUsers);
     return (
