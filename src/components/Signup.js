@@ -6,16 +6,28 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 
+const SignUp = styled.div`
+background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80");
+background-repeat: no-repeat;
+height: 100vh;
+`
+
 const FormBack = styled.div`
-background-color: #F4F5F7;
-width: 690px;
-height: 495.59px;
+background: rgba(255,255,255, 0.7);
+width: 600px;
+height: 550px;
+border-radius: 10px;
 margin: 0 auto;`
 
-const Capture = styled.h1`
+const FormIn = styled.div`
+padding-top: 50px;
+margin-top: 5%;
+`
+const Capture = styled.div`
 color: #3C5955;
 font-size: 50px;
 font-family: Lobster;
+padding-top: 10%;
 `
 const Button = styled.button`
 background: #38A1DE;
@@ -56,7 +68,6 @@ export const Signup = props => {
         .then(response => {
             console.log('signup response', response)
             props.history.push('/login');
-            
         })
         .catch(error => {
             console.log(error);
@@ -75,12 +86,12 @@ export const Signup = props => {
 
 
     return (
-        <div className='signup-container'>
+        <SignUp className='signup-container'>
                 <Capture>Capture</Capture>
                 <FormBack>
                 <form onSubmit={submitForm}>
+                    <FormIn>
                     <div>
-                    
                     <Input name='username' type='text' placeholder='Username' value={userSignUp.username} onChange={handleChange} required/> 
                     </div>
                     <br/>
@@ -97,15 +108,17 @@ export const Signup = props => {
                     </div>
                     <br/>
                     <div>
-                    <Input name='email' type='text' placeholder='Email' value={userSignUp.email} onChange={handleChange} required />
+                    <Input name='email' type='email' placeholder='Email' value={userSignUp.email} onChange={handleChange} required />
                     </div>
                     <br/>
                     <Button>Sign Up</Button>
                     <br/>
                     <label>Already have an account?</label>
+                    <br/>
                     <button><NavLink to='/login'>Log in</NavLink></button>
+                    </FormIn>
                 </form>
                 </FormBack>
-        </div>
+        </SignUp>
     )
 }
