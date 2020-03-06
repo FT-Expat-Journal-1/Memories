@@ -38,8 +38,6 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type){
-
-
         case GET_POST_START:
         return{
             ...state,
