@@ -11,8 +11,7 @@ export const ProfilePosts = props => {
     const handleDelete = event => {
         event.preventDefault();
         dispatch(deletePostData(props.id));
-        dispatch(getTravelerPostData());
-        history.push('/dashboard')
+        history.push('/profile')
     }
     return(
         <div className="post-cards-div">

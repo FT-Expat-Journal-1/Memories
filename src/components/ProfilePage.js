@@ -1,14 +1,15 @@
 // Component - Fetch all travelers data and pass down to <ProfilePosts> component
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { getPostData, getTravelerPostData } from '../actions';
 import { ProfilePosts } from '././ProfilePosts';
 import './ProfilePage.scss';
 
-export const ProfilePage = props => {
+const ProfilePage = props => {
     const dispatch = useDispatch();
     const travelerID = window.localStorage.getItem('traveler_id');
+    const posts = props.travelerPosts;
 
     const logOut = () => {
         window.localStorage.removeItem('token');
@@ -17,16 +18,17 @@ export const ProfilePage = props => {
     
     useEffect(() => {
         dispatch(getTravelerPostData(travelerID));
-    },[getTravelerPostData])
+        console.log("This is traveler", travelerID)
+    },[props.isLoading])
 
-    const posts = useSelector(state => state.travelerPosts);
-    const firstName = useSelector(state => state.user.first_name);
+    
+    const firstName = props.first_name;
     console.log("first name", firstName);
 
     return (
         <div className='main-container'>
             <header>
-                <div class="navDiv">
+                <div className="navDiv">
                     <a href='https://ft-expat-journal-1.github.io/Expat-Journal-Marketing-Page/' className='captureLogo'>Capture</a>
                     <NavLink className='logOut' onClick={logOut} to='/login' >Log Out</NavLink>
                 </div>
@@ -68,3 +70,13 @@ export const ProfilePage = props => {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        firstName: state.user.first_name,
+        isLoading: state.isLoading,
+        travelerPosts: state.travelerPosts
+    }
+}
+
+export default connect(mapStateToProps,{getTravelerPostData})(ProfilePage);
