@@ -4,7 +4,7 @@ import PrivateRoute from './components/PrivateRoute';
 import { Signup } from './components/Signup';
 import { Login } from './components/Login';
 import { Dashboard } from './components/Dashboard';
-import { ProfilePage } from './components/ProfilePage';
+import ProfilePage from './components/ProfilePage';
 import { PostCreateForm } from './components/PostCreateForm';
 import { ProfilePostsForm } from './components/ProfilePostsForm';
 import { InternalUserTest } from './components/InternalUserTest';

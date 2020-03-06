@@ -24,7 +24,7 @@ export const Dashboard = () => {
     return (
         <div className='main-container'>
             <header>
-                <div class="navDiv">
+                <div className="navDiv">
                     <a href='https://ft-expat-journal-1.github.io/Expat-Journal-Marketing-Page/' className='captureLogo'>Capture</a>
                     <NavLink className='logOut' onClick={logOut} to='/login' >Log Out</NavLink>
                 </div>

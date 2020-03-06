@@ -12,6 +12,7 @@ import {
     GET_TRAVELER_SUCCESS,
 
     DELETE_TRAVELER_SUCCESS,
+    DELETE_POST_START,
     DELETE_POST_SUCCESS 
 
 } from '../actions';
@@ -90,12 +91,21 @@ export const reducer = (state = initialState, action) => {
         case DELETE_TRAVELER_SUCCESS:
             return {
                 ...state,
+
                 error: ''
             }
-    
+            
+        case DELETE_POST_START:
+            return {
+                ...state,
+                isLoading: true,
+            }
+            
         case DELETE_POST_SUCCESS:
         return {
             ...state,
+            post: action.payload,
+            isLoading: false,
             error: ''
         }
     
