@@ -56,8 +56,8 @@ export const ProfilePage = props => {
                 </div>
 
                 <div className='main-container-post'>
-                    <div>What's on your mind {firstName}? </div>
-                    <button className='post-add-btns'><NavLink to='/add-post' className='post-add-btns-nav'>Add Post</NavLink></button>
+                    <h2>What's on your mind {firstName}? </h2>
+                    <NavLink to='/add-post'><button className='post-add-btns'>Add New Post</button></NavLink>
                     <div className='post-cards'>
                         {posts.map(posts=> {
                             return <ProfilePosts key={posts.id} id={posts.id} title={posts.title} body={posts.body} imgURL={posts.img_url}/>
