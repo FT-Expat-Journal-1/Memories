@@ -8,6 +8,7 @@ import styled from 'styled-components'
 const LogIn = styled.div`
   background-image: url("https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1782&q=80");
   background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 `
 
