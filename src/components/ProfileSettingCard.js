@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTravelerData } from '../actions';
 import styled from 'styled-components'
@@ -18,50 +18,35 @@ height: 35px;
 `
 const FormBack = styled.div`
 background-color: #F4F5F7;
+padding-top: 10%;
 width: 690px;
 height: 50vh;
-margin: 0 auto;`
-
-const Per = styled.p`
-font-family: SF Pro Text;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 24px;
+margin: 0 auto;
 `
 
-const Headinfo = styled.h1`
-font-family: SF Pro Text;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 21px;
-`
 
 export const ProfileSettingCard = props => {
     console.log('ProfileSettingCard props', props)
     const travelerID = window.localStorage.getItem('traveler_id');
     const dispatch = useDispatch();
-
-    const handleEdit = event => {
-        event.preventDefault();
-    }
+    const history = useHistory();
 
     const handleDelete = event => {
         event.preventDefault();
         dispatch(deleteTravelerData(travelerID));
+        history.push('/login')
     }
 
     return (
         <FormBack>
-            <Headinfo>Personal Information</Headinfo>
-            <Per>User Name: {props.user.username}</Per>
-            <Per>First Name: {props.user.first_name}</Per>
-            <Per>Last Name: {props.user.last_name}</Per>
-            <Per>E-mail: {props.user.email}</Per>
-            <Button1 onClick={handleEdit}><NavLink to='/update-setting'> Edit </NavLink></Button1>
+            <h1>Personal Information</h1>
+            <h2>User Name: {props.user.username}</h2>
+            <h2>First Name: {props.user.first_name}</h2>
+            <h2>Last Name: {props.user.last_name}</h2>
+            <h2>E-mail: {props.user.email}</h2>
+            <NavLink to={'/update-setting'}><Button1>Edit</Button1></NavLink>
             <br/>
-            <Button2 onClick={handleDelete}><NavLink to='/login' > Delete </NavLink></Button2>
+            <NavLink to='/login'><Button2 onClick={handleDelete}>Delete</Button2> </NavLink>
         </FormBack>
     )
 }

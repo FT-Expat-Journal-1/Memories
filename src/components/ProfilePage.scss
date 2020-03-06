@@ -35,6 +35,11 @@
     }
 }
 
+.main-container-post{
+    margin-top: 1%;
+    border-radius: 10px;
+}
+
 .post-cards{
     width: 80%;
     margin: 0 auto;
@@ -43,26 +48,13 @@
 
 .post-add-btns{
     margin-top: 2%;
-    width: 25%;
+    width: 15%;
     border-radius: 5px;
+    border: 2px solid #3C5955;
+    font-weight: bold;
+    padding: 0.5%;
     &:hover {
         color:white;
         background-color: #3C5955;
-    }
-}
-
-.post-add-btns-nav{
-    display: flex;
-    font-style: normal;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #3C5955;
-    width: 50%;
-    text-align: center;
-    padding-left: 35%;
-    padding-right: 15%;
-    &:hover {
-        color:white;
     }
 }

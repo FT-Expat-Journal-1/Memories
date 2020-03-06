@@ -115,7 +115,7 @@ export const Signup = props => {
                     <br/>
                     <label>Already have an account?</label>
                     <br/>
-                    <button><NavLink to='/login'>Log in</NavLink></button>
+                    <NavLink to='/login'><button>Log in</button></NavLink>
                     </FormIn>
                 </form>
                 </FormBack>
